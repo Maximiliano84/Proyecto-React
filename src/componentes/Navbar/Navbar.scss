@@ -1,0 +1,38 @@
+.header{
+    background-color: rgb(230, 173, 104);
+ 
+    &__container{
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 20px 0;
+      
+      .header__logo{
+        color: white;
+      }
+
+      .header__navbar{
+        display: flex;
+        width: 50%;
+        justify-content: space-around;
+        
+
+        .header__navlink{
+          color: white;
+          font-weight: 700;
+          text-transform: uppercase;
+          cursor: pointer;
+
+        
+        }
+      }
+    }
+ }  .cart{
+  color: white;
+  font-size: 30px;
+
+}
+
+
