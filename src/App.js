@@ -3,7 +3,7 @@ import './estilos.css';
 import Navbar from './componentes/Navbar/Navbar';
 //import Nosotros from "./componentes/Nosotros/Nosotros";
 import ItemListContainer from "./componentes/ItemListContainer/ItemListContainer"
-
+import CartWidget from './componentes/CartWidget/CartWidget';
 
 function App() {
 
@@ -17,12 +17,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <Navbar/>
-      
-    <ItemListContainer nombre= {producto.nombre} color= {producto.color} precio={producto.precio} />
-    
-      
+         <Navbar/> 
+         <CartWidget/>
+         <ItemListContainer nombre= {producto.nombre} color= {producto.color} precio={producto.precio} />
+   
       </header>
+  
     </div>
   );
 }
