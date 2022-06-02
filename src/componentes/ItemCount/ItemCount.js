@@ -5,16 +5,20 @@ const ItemCount = ({stock}) => {
 
     const [contador, setContador]= useState(1)
     
-    const incrementar = ({stock})=> {
-        setContador(contador + 1)
-        if(contador >= 10)
-        alert("No hay stock")
+    const incrementar = ()=> {
+        if(contador < stock){
+            setContador(contador + 1)
+        }else{
+             alert("No hay stock")
+            }
 }
 
-    const decrementar = ({initial})=> {
-    setContador(contador - 1)
-    if(contador <= 1)
-    alert("No puede elegir menos de 1 producto")
+    const decrementar = ()=> {
+    if(contador > 1){
+        setContador(contador - 1)
+    }else{
+        alert("No puede elegir menos de 1 producto")
+    }
 }
 
     const agregar = () => {
