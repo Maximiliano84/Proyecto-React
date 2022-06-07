@@ -4,8 +4,11 @@ import Navbar from './componentes/Navbar/Navbar';
 //import Nosotros from "./componentes/Nosotros/Nosotros";
 import ItemListContainer from "./componentes/ItemListContainer/ItemListContainer"
 import CartWidget from './componentes/CartWidget/CartWidget';
-//import Counter from "./componentes/counter/counter"
+import Counter from "./componentes/counter/counter"
 import ItemCount from './componentes/ItemCount/ItemCount';
+
+import ItemDetailContainer from './componentes/ItemDetailContainer/ItemDetailContainer';
+//import PokeApi from './componentes/ejemplos/PokeApi';
 function App() {
 
   const producto= {
@@ -20,12 +23,14 @@ function App() {
       <header className="App-header">
          <Navbar/> 
 
-         {/* <Counter/> */}
+         {/* <PokeApi/>      */}
+
+         <Counter/>
          <ItemCount stock="10" initial="1"/>
 
          <CartWidget/>
          <ItemListContainer nombre= {producto.nombre} color= {producto.color} precio={producto.precio} />
-   
+        <ItemDetailContainer/>
       </header>
   
     </div>

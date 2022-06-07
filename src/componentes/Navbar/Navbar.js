@@ -1,6 +1,5 @@
 import "./Navbar.scss";
-import { BsFillCartFill} from 'react-icons/bs';
-
+import CartWidget from "../CartWidget/CartWidget";
 const Navbar  = () => {
 
     return (
@@ -14,7 +13,7 @@ const Navbar  = () => {
                     <p className= "header__navlink">Enlace 3</p>
                 </nav>
                  <div className="cart">
-                   < BsFillCartFill/>
+                   <CartWidget/>
                 </div>
              </div>   
         </header>

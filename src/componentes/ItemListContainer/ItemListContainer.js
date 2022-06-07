@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
 import { Spinner } from 'react-bootstrap';
 import ItemList from '../itemlist/itemList';
 import { pedirDatos } from '../mock/pedirDatos';
+import { getItem } from '../ItemDetailContainer/ItemDetail';
 
-
-const ItemListContainer = ({nombre, color, precio})=>{
+const ItemListContainer = ()=>{
 
 const [items, setItems] = useState([])
 const [loading, setloading] = useState(true)
@@ -43,7 +42,17 @@ useEffect(()=>{
                 ?   <Spinner animation="grow" />
 
                 : <ItemList items={items}/>
+
             }
+            {
+                 loading
+                 ?   <Spinner animation="grow" />
+ 
+                 : <getItem/>
+            }
+
+
+
 
         </section>
     )
