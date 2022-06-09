@@ -1,21 +1,29 @@
 import { useEffect, useState } from 'react';
 import { Spinner } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 import ItemList from '../itemlist/itemList';
 import { pedirDatos } from '../mock/pedirDatos';
-import { getItem } from '../ItemDetailContainer/ItemDetail';
+
 
 const ItemListContainer = ()=>{
 
 const [items, setItems] = useState([])
 const [loading, setloading] = useState(true)
 
+const {categoryId} = useParams()
+console.log(categoryId)
 
 useEffect(()=>{
     setloading(true)
 
     pedirDatos()
     .then((resp)=>{
-        setItems(resp)
+        if(!categoryId){
+           setItems(resp)  
+        }else{
+            setItems (resp.filter((item) => item.categoria === categoryId))
+        }
+       
        
     } )
     .catch((error) =>{
@@ -25,7 +33,7 @@ useEffect(()=>{
         setloading(false)
     }
      )
-},[] )    
+},[categoryId] )    
 
 
     return (
@@ -44,12 +52,12 @@ useEffect(()=>{
                 : <ItemList items={items}/>
 
             }
-            {
+            {/* {
                  loading
                  ?   <Spinner animation="grow" />
  
-                 : <getItem/>
-            }
+                 : <ItemDetailContainer/>
+            } */}
 
 
 

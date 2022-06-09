@@ -37,10 +37,10 @@ return(
             <h4> {contador} </h4>
             <button className="btn btn-primary" onClick={decrementar}>-</button>
             <button className="btn btn-primary" onClick={incrementar}>+</button>
-            <button className="btn btn-primary" onClick={agregar}>AGREGAR</button>
+            <button className="btn btn-primary" onClick={agregar}>AGREGAR AL CARRITO</button>
 
             
-            <p>PyH del ultimo click: {new Date().toLocaleString()} </p>
+            
         </div>
 )
 }

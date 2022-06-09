@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 
 const Item = ({item}) =>{
@@ -9,6 +10,10 @@ const Item = ({item}) =>{
             <p>{item.desc} </p>
             <h4>Stock:{item.stock}</h4>
             <h4><b>Precio:</b>${item.precio}</h4>
+
+            <Link to= {`/item/${item.id}`}>
+                <button className="btn btn-primary my-2">Ver Mas</button>
+            </Link>
             <hr></hr>
         </div>
     )

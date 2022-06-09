@@ -1,22 +1,18 @@
 import "./Nosotros.scss";
 
 
-const Nosotros = ( {titulo,content} ) => {
+const Nosotros = ( ) => {
 
-//console.log(props);
-//const {titulo, content} = props
 return (
-     <section className="nosotros">
+     <section className="container my-5">
 
-        <h2 className="nosotros__title">{titulo}</h2>
+        <h2>Nosotros</h2>
         <hr/>
 
-        <p>{content}</p>
+        <p>Contenido</p>
 
      </section>
 )
-
-
 }
 
 export default Nosotros
