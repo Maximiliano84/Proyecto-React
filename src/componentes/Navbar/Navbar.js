@@ -14,6 +14,8 @@ const Navbar  = () => {
                     <Link to= {"/categorias/pashminas"} className= "header__navlink">Pashminas</Link>
                     <Link to= {"/categorias/gorros"} className= "header__navlink">Gorros</Link>
                     <Link to= {"/categorias/bufandas"} className= "header__navlink">Bufandas</Link>
+                    <Link to= {"/contacto"} className= "header__navlink">contacto</Link>
+                    <Link to= {"/cart"} className= "header__navlink">cart</Link>
                 </nav>
                  <div className="cart">
                    <CartWidget/>

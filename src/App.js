@@ -11,7 +11,7 @@ import Nosotros from "./componentes/Nosotros/Nosotros"
 import Contacto from "./componentes/Contacto/Contacto"
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import ItemDetailContainer from './componentes/itemDetail/ItemDetailContainer/ItemDetailContainer';
-
+import Cart from './componentes/cart/cart';
 
 function App() {
  
@@ -28,6 +28,7 @@ function App() {
                 <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
                 <Route path='/nosotros' element={ <Nosotros/>} />
                 <Route path='/contacto' element={<Contacto/>} />
+                <Route path='/cart' element={<Cart/>} />
                 {/* <Route path='*' element={<Navigate to={"/"} />} /> */}
               </Routes>
 
