@@ -12,12 +12,20 @@ import Contacto from "./componentes/Contacto/Contacto"
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import ItemDetailContainer from './componentes/itemDetail/ItemDetailContainer/ItemDetailContainer';
 import Cart from './componentes/cart/cart';
+import  { CartProvider } from './componentes/context/CartContext';
+
+
 
 function App() {
  
+
+
   return (
+    
+    
     <div className="App">
       <header className="App-header">
+      <CartProvider>
 
         <BrowserRouter>
               <Navbar/> 
@@ -43,6 +51,8 @@ function App() {
               
               <ItemDetailcontainer/> */}
         </BrowserRouter>
+       
+      </CartProvider>
       </header>
   
     </div>

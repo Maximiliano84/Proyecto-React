@@ -1,5 +1,5 @@
 //import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+//import { Link } from "react-router-dom"
 
 const ItemCount = ({stock, setCounter, counter, handleAgregar}) => {
     
@@ -29,9 +29,9 @@ return(
             <button className="btn btn-primary" onClick={handleSumar}>+</button>
             <hr/>
             
-            <Link to= {`/cart`}>
+           
             <button className="btn btn-success" onClick={handleAgregar}>AGREGAR AL CARRITO</button>
-            </Link>
+           
         </div>
 )
 }

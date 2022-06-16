@@ -17,9 +17,9 @@ const Navbar  = () => {
                     <Link to= {"/contacto"} className= "header__navlink">contacto</Link>
                     <Link to= {"/cart"} className= "header__navlink">cart</Link>
                 </nav>
-                 <div className="cart">
+                 
                    <CartWidget/>
-                </div>
+                
              </div>   
         </header>
     )

@@ -1,11 +1,16 @@
 import { BsFillCartFill} from 'react-icons/bs';
+import { Link } from 'react-router-dom';
+import  { useCartContext } from '../context/CartContext';
 
 const CartWidget = () => {
 
+    const {cantidadTotal} = useCartContext()
+
     return (
-        <div className="cart">
+        <Link to="/cart" className='cart'>
               < BsFillCartFill/>
-        </div>
+              <span>{cantidadTotal()} </span>
+        </Link>
     )
 }
 
