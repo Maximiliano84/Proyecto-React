@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Spinner } from 'react-bootstrap';
+import Loader from '../../Loader/Loader';
 import { useParams } from 'react-router-dom';
-import Item from '../../Item/item';
+
 import { pedirDatos } from '../../mock/pedirDatos';
 import ItemDetail from './ItemDetail';
 
@@ -31,7 +31,7 @@ useEffect(()=>{
         setloading(false)
     }
      )
-},[] )    
+},[itemId] )    
 
 
     return (
@@ -39,12 +39,8 @@ useEffect(()=>{
             
             {
                 loading
-                ? <Spinner animation="grow" />
-                    
-
-               
+                ? <Loader/>
                 : <ItemDetail item={item} />
-
             }
     
         

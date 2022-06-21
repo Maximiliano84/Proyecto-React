@@ -45,7 +45,7 @@ const productos = [
         precio: 1950,
         categoria:"bufandas",
         img: "https://via.placeholder.com/220",
-        stock: 20
+        stock: 0
 
     },
 

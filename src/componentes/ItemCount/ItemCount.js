@@ -12,12 +12,17 @@ const ItemCount = ({stock, setCounter, counter, handleAgregar}) => {
 }
 
     const handleRestar = ()=> {
-    if(counter > 1){
-        setCounter(counter - 1)
-    }else{
-        alert("No puede elegir menos de 1 producto")
-    }
+    counter  > 1  && setCounter(counter - 1)
+   }
+
+if (stock === 0) {
+    return(
+         <div className="my-3">
+        <p>SIN STOCK!!!</p>
+    </div>
+    )
 }
+
 
 
 return(
@@ -25,8 +30,8 @@ return(
             <h2>Counter</h2>
             <p><b>Stock: </b>{stock} </p>
             <h4> {counter} </h4>
-            <button className="btn btn-primary" onClick={handleRestar}>-</button>
-            <button className="btn btn-primary" onClick={handleSumar}>+</button>
+            <button className={counter === 1? "btn btn-danger" : "btn btn-primary" } onClick={handleRestar}>-</button>
+            <button className={counter === stock ? "btn btn-danger":"btn btn-primary"} onClick={handleSumar}>+</button>
             <hr/>
             
            

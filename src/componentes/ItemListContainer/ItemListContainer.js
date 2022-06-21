@@ -1,8 +1,7 @@
 import {  useEffect, useState } from 'react';
-import { Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-
 import ItemList from '../itemlist/itemList';
+import Loader from '../Loader/Loader';
 import { pedirDatos } from '../mock/pedirDatos';
 
 
@@ -42,26 +41,15 @@ const ItemListContainer = ()=>{
 
     return (
         <section className='container my-5'>
-            
-
-            {/* <p> <b>PRODUCTO:</b> {nombre} </p>
-            <p> <b>COLOR:</b> {color} </p>
-            <p><b>PRECIO:</b> {precio} </p>
-            <Button variant="success">Agregar</Button><Button variant="danger" size="sm">Quitar</Button> */}
+        
             
             {
                 loading
-                ?   <Spinner animation="grow" />
+                ?   <Loader/>
 
                 : <ItemList items={items}/>
-
             }
-            {/* {
-                 loading
-                 ?   <Spinner animation="grow" />
- 
-                 : <ItemDetailContainer/>
-            } */}
+            
 
 
 

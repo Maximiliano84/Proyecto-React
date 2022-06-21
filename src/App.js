@@ -25,34 +25,40 @@ function App() {
     
     <div className="App">
       <header className="App-header">
-      <CartProvider>
+      
 
-        <BrowserRouter>
-              <Navbar/> 
+          <CartProvider>
 
-              <Routes>
-                <Route path='/' element={<ItemListContainer />} />
-                <Route path='/categorias/:categoryId' element={<ItemListContainer />} />
-                <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
-                <Route path='/nosotros' element={ <Nosotros/>} />
-                <Route path='/contacto' element={<Contacto/>} />
-                <Route path='/cart' element={<Cart/>} />
-                {/* <Route path='*' element={<Navigate to={"/"} />} /> */}
-              </Routes>
+            <BrowserRouter>
+                  <Navbar/> 
 
-              {/* <PokeApi/>      */}
-             
-              
+                  <Routes>
+                    <Route path='/' element={<ItemListContainer />} />
+                    <Route path='/categorias/:categoryId' element={<ItemListContainer />} />
+                    <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
+                    <Route path='/nosotros' element={ <Nosotros/>} />
+                    <Route path='/contacto' element={<Contacto/>} />
+                    <Route path='/cart' element={<Cart/>} />
 
-              {/* <Counter/> */}
-              
+                    {/* <Route path='*' element={<Navigate to={"/"} />} /> */}
+                  </Routes>
 
-              {/* <CartWidget/>
-              
-              <ItemDetailcontainer/> */}
-        </BrowserRouter>
-       
-      </CartProvider>
+                  {/* <PokeApi/>      */}
+                
+                  
+
+                  {/* <Counter/> */}
+                  
+
+                  {/* <CartWidget/>
+                  
+                  <ItemDetailcontainer/> */}
+            </BrowserRouter>
+          
+          </CartProvider>
+
+  
+     
       </header>
   
     </div>
