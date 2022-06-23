@@ -30,8 +30,12 @@ return(
             <h2>Counter</h2>
             <p><b>Stock: </b>{stock} </p>
             <h4> {counter} </h4>
-            <button className={counter === 1? "btn btn-danger" : "btn btn-primary" } onClick={handleRestar}>-</button>
-            <button className={counter === stock ? "btn btn-danger":"btn btn-primary"} onClick={handleSumar}>+</button>
+            <button className={counter === 1? "btn btn-danger" : "btn btn-primary" } 
+                    onClick={handleRestar}>-</button>
+
+            <button className={counter === stock ? "btn btn-danger":"btn btn-primary"} 
+                    onClick={handleSumar}>+</button>
+
             <hr/>
             
            
