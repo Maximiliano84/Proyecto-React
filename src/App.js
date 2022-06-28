@@ -13,6 +13,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 import ItemDetailContainer from './componentes/itemDetail/ItemDetailContainer/ItemDetailContainer';
 import Cart from './componentes/cart/cart';
 import  { CartProvider } from './componentes/context/CartContext';
+import Checkout from './componentes/Checkout/Checkout';
 
 
 
@@ -39,6 +40,7 @@ function App() {
                     <Route path='/nosotros' element={ <Nosotros/>} />
                     <Route path='/contacto' element={<Contacto/>} />
                     <Route path='/cart' element={<Cart/>} />
+                    <Route path='/checkout' element={<Checkout/>}/>
 
                     {/* <Route path='*' element={<Navigate to={"/"} />} /> */}
                   </Routes>

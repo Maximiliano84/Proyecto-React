@@ -18,7 +18,7 @@ const ItemListContainer = ()=>{
         
         //1 armar la referencia
         const productosRef = collection(db, "productos" )
-        const q = categoryId? query(productosRef, where("categoria", "==", categoryId) ): productosRef
+        const q = categoryId? query(productosRef, where("categoria", "==", categoryId) ): productosRef;
 
         //2 async- llamar a firebase con la ref anterior
         getDocs(q)
