@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import CartContext from "../../context/CartContext";
 import ItemCount from "../../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
+import "./ItemDetail.scss"
+
+
 
 const ItemDetail = ({ item }) => {
 
@@ -26,45 +29,35 @@ const ItemDetail = ({ item }) => {
 }
 
 
-    return (
-        
-            <div>
-                
-                 <div>
-                        <div>
-                          <img src={item.img} alt={item.img} />
-                        </div>
-                         <div>
-                               <h3>{item.nombre}</h3>
-                               <h4>Precio:{item.precio} </h4>
-                               <p>{item.desc}</p>
+    return (           
+         <div className="detalle">                 
+            <h3>{item.nombre}</h3>
+            <img src={item.img} alt={item.img} />
+            <h4><b>Precio</b>:${item.precio} </h4>
+            <p>{item.desc}</p>
+            <hr/>
 
-                                <hr/>
-                                {
-                                    isInCart(item.id)
+            {
+            isInCart(item.id)
                                     
-                                    ? <Link to="/cart" className="btn btn-success my-3">Finalizar Compra</Link>
-                                    :
+            ? <Link to="/cart"  ><button className="finalizar">FINALIZAR COMPRA</button></Link>
+            :
                                     
-                                       <ItemCount 
-                                          initial="1" 
-                                          stock= {item.stock} 
-                                          setCounter={setCantidad} 
-                                          counter={cantidad} 
-                                          handleAgregar={handleAgregar}
-                                         />
+            <ItemCount 
+                initial="1" 
+                stock= {item.stock} 
+                setCounter={setCantidad} 
+                counter={cantidad} 
+                handleAgregar={handleAgregar}
+                />
 
-                                }   
+            }   
 
-                                <br></br>
-                               <button onClick={handleVolver}>VOLVER</button>
-                                    
-                         </div>
-                </div>
-                      
-                
-            </div>
-       
+            <br></br>
+             <button onClick={handleVolver}> VOLVER </button>
+                       
+        </div>
+               
     );
 }
 

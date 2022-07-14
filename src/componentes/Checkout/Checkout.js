@@ -3,57 +3,44 @@ import { Navigate } from "react-router-dom"
 import { useCartContext } from "../context/CartContext"
 import { collection, getDocs, addDoc, doc, updateDoc, getDoc, writeBatch, query, where, documentId } from "firebase/firestore"
 import { db } from "../../firebase/config"
-import { async } from "@firebase/util"
+import { Formik } from "formik"
+import * as Yup from "yup"
+
+const schema = Yup.object().shape({
+    nombre: Yup.string()
+                .required(`Campo obligatorio`)
+                .min(4, `El nombre es demasiado corto`)
+                .max(30, `Maximo 30 caracteres`),
+    email: Yup.string()
+                .required(`Campo obligatorio`)
+                .email(`Formato inválido`),
+    direccion: Yup.string()
+                .required(`Campo obligatorio`)
+                .min(4, `El nombre es demasiado corto`)
+                .max(30,`Máximo 30 caracteres`),
+
+
+
+})
 
 const Checkout = () => {
     
-
     const { cart, precioTotal, vaciarCarrito } = useCartContext()
 
     const [ orderId, setOrderId ] = useState(null)
 
-    const [values, setValues] = useState({
-        nombre: ``,
-        email: ``,
-        direccion:``
-    })
-
-    const handleInputChange = (e) =>{
-        setValues({
-            ...values,
-            [e.target.name] : e.target.value
-        })
-    }
-
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-
-        
-        if (values.nombre.length < 5){
-            alert("El nombre es demasiado corto")
-            return
-        }
-        if (values.email.length < 5){
-            alert("El nombre es invalido")
-            return
-        }
-        if (values.direccion.length < 5){
-            alert("Direccion incorrecta")
-            return
-        }
-
+    const generarOrden = async (values) => {
+      
         const orden = {
             buyer: values,
             items: cart.map(({id, cantidad, nombre, precio}) => ({id, cantidad, nombre, precio})),
             total: precioTotal()
         }
 
-        
         const batch = writeBatch(db)
         const ordersRer = collection(db, "orders");
         const productosRef = collection(db, "productos")
         const q = query(productosRef, where(documentId(), `in`, cart.map(el => el.id)))
-
         const outOfStock = []
         const productos = await getDocs(q)
 
@@ -100,35 +87,56 @@ const Checkout = () => {
             <h2>Checkout</h2>
             <hr/>
 
-            <form onSubmit={handleSubmit}>
-                <input
-                    value={values.nombre}
-                    name="nombre"
-                    onChange={handleInputChange}
-                    type={"text"}
-                    placeholder={"Nombre"}
-                    className="form-control my-2"
-                    />
-                <input
-                    value={values.email}
-                    name="email"
-                    onChange={handleInputChange}
-                    type={"text"}
-                    placeholder={"EMail"}
-                    className="form-control my-2"
-                    />
-                <input
-                    value={values.direccion}
-                    name="direccion"
-                    onChange={handleInputChange}
-                    type={"text"}
-                    placeholder={"Direccion"}
-                    className="form-control my-2"
-                    />
+            <Formik
+                initialValues= { {
+                    nombre:``,
+                    email:``,
+                    direccion:``
+                }}
+                onSubmit={ generarOrden }
+                validationSchema={schema}
+                >
 
-                <button type="submit" className="btn btn-primary">Enviar</button>
+                {(formik)=> (
+                    <form onSubmit={formik.handleSubmit}>
+                        <input
+                            value={formik.values.nombre}
+                            name="nombre"
+                            onChange={formik.handleChange}
+                            type={"text"}
+                            placeholder={"Nombre"}
+                            className="form-control my-2"
+                            />
+                            {formik.errors.nombre && <p className="alert alert-danger">{formik.errors.nombre}</p>}
+                        <input
+                            value={formik.values.email}
+                            name="email"
+                            onChange={formik.handleChange}
+                            type={"text"}
+                            placeholder={"EMail"}
+                            className="form-control my-2"
+                            />
+                            {formik.errors.email && <p className="alert alert-danger">{formik.errors.email}</p>}
+                        <input
+                            value={formik.values.direccion}
+                            name="direccion"
+                            onChange={formik.handleChange}
+                            type={"text"}
+                            placeholder={"Direccion"}
+                            className="form-control my-2"
+                            />
+                            {formik.errors.direccion && <p className="alert alert-danger">{formik.errors.direccion}</p>}
 
-            </form>
+                        <button type="submit" className="btn btn-primary">Enviar</button>
+
+                    </form>
+
+                )
+                }
+
+            </Formik>
+
+          
 
                  <button onClick={vaciarCarrito} className="btn btn-danger my-2">Cancelar mi Compra</button>
         </div>

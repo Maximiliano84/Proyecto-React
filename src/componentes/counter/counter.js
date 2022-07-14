@@ -17,21 +17,11 @@ const Counter = () => {
         console.log("Actualizacion de los contadores")
     },[contador1,contador2])
 
-    // useEffect(()=>{
-    //     console.log("Actualizacion contador1")
-    // },[contador1])
-
-    // useEffect(()=>{
-    //     console.log("Actualizacion contador2")
-    // },[contador2])
-
-
-
-
+    
 return(
-        <div className="container my-1">
+        <div className="">
 
-            <h2>Counter</h2>
+            
             <hr></hr>
             
             <p onClick={incrementar1}>{contador1} </p>

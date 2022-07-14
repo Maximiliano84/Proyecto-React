@@ -1,15 +1,21 @@
 import Item from "../Item/item";
+import "./ItemList.scss"
+import Botones from "../Botones/Botones";
 
 const ItemList = ({items} ) =>{ 
 
     return (
-                <div>
-                    <h2>Nuestros productos</h2>
-                    <hr/>
-                    {
-                    items.map((item) => <Item key={item.id} item={item}/> )
-                     }
-                </div>
+        <div >
+            <Botones/>
+                 
+                <h2 className="titulo">Nuestros productos</h2>
+                
+                <div className="items">
+                {
+                items.map((item) => <Item key={item.id} item={item}/> )
+                 }
+               </div>
+        </div>
     )           
 }
 

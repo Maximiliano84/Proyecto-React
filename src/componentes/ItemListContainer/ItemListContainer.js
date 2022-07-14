@@ -4,6 +4,9 @@ import ItemList from '../itemlist/itemList';
 import Loader from '../Loader/Loader';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../firebase/config';
+import "./ItemListContainer.scss"
+
+
 
 const ItemListContainer = ()=>{
 
@@ -43,20 +46,20 @@ const ItemListContainer = ()=>{
 
 
     return (
-        <section className='container my-5'>
+
         
-            
-            {
-                loading
-                ?   <Loader/>
+        <section className="productos_container">
+                <div className='productos'>
+    
+                    {
+                        loading
+                        ?   <Loader/>
 
-                : <ItemList items={items}/>
-            }
-            
+                        : <ItemList items={items}/>
+                    }
 
-
-
-
+                </div>
+               
         </section>
     )
 }

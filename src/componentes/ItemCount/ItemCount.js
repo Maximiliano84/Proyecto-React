@@ -1,5 +1,5 @@
-//import { useState, useEffect } from "react"
-//import { Link } from "react-router-dom"
+import "./ItemCount.scss"
+import swal from "sweetalert"
 
 const ItemCount = ({stock, setCounter, counter, handleAgregar}) => {
     
@@ -7,7 +7,7 @@ const ItemCount = ({stock, setCounter, counter, handleAgregar}) => {
         if(counter < stock){
             setCounter(counter + 1)
         }else{
-             alert("No hay stock")
+             swal("NO HAY STOCK!!!")
             }
 }
 
@@ -26,20 +26,20 @@ if (stock === 0) {
 
 
 return(
-        <div className="container my-3">
-            <h2>Counter</h2>
-            <p><b>Stock: </b>{stock} </p>
-            <h4> {counter} </h4>
-            <button className={counter === 1? "btn btn-danger" : "btn btn-primary" } 
-                    onClick={handleRestar}>-</button>
-
-            <button className={counter === stock ? "btn btn-danger":"btn btn-primary"} 
-                    onClick={handleSumar}>+</button>
-
-            <hr/>
+        <div className="counter">
             
-           
-            <button className="btn btn-success" onClick={handleAgregar}>AGREGAR AL CARRITO</button>
+            <h4><b>Stock: </b>{stock} </h4>
+            <div className="counter_number">
+                <button className={counter === 1? "btn btn-danger" : "btn btn-primary" } 
+                        onClick={handleRestar}>-</button>
+
+                        <h4> {counter} </h4>
+
+                <button className={counter === stock ? "btn btn-danger":"btn btn-primary"} 
+                        onClick={handleSumar}>+</button>
+            </div>
+        
+            <button className="agregar" onClick={handleAgregar}>AGREGAR AL CARRITO</button>
            
         </div>
 )

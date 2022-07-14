@@ -1,12 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './estilos.css';
-import Navbar from './componentes/Navbar/Navbar';
-//import Nosotros from "./componentes/Nosotros/Nosotros";
+import NavbarReact from './componentes/Navbar/Navbar';
 import ItemListContainer from "./componentes/ItemListContainer/ItemListContainer"
-// import CartWidget from './componentes/CartWidget/CartWidget';
-// import Counter from "./componentes/counter/counter"
-// import ItemCount from './componentes/ItemCount/ItemCount';
-//import PokeApi from './componentes/ejemplos/PokeApi';}
 import Nosotros from "./componentes/Nosotros/Nosotros"
 import Contacto from "./componentes/Contacto/Contacto"
 import {BrowserRouter, Routes, Route} from "react-router-dom"
@@ -14,15 +9,15 @@ import ItemDetailContainer from './componentes/itemDetail/ItemDetailContainer/It
 import Cart from './componentes/cart/cart';
 import  { CartProvider } from './componentes/context/CartContext';
 import Checkout from './componentes/Checkout/Checkout';
+import { Navigate } from 'react-router-dom';
+import Footer from './componentes/Footer/Footer';
+import Pagos from './componentes/Pagos/Pagos';
+
 
 
 
 function App() {
- 
-
-
   return (
-    
     
     <div className="App">
       <header className="App-header">
@@ -31,7 +26,8 @@ function App() {
           <CartProvider>
 
             <BrowserRouter>
-                  <Navbar/> 
+                  <NavbarReact/> 
+                  
 
                   <Routes>
                     <Route path='/' element={<ItemListContainer />} />
@@ -41,23 +37,15 @@ function App() {
                     <Route path='/contacto' element={<Contacto/>} />
                     <Route path='/cart' element={<Cart/>} />
                     <Route path='/checkout' element={<Checkout/>}/>
-
-                    {/* <Route path='*' element={<Navigate to={"/"} />} /> */}
+                    <Route path='*' element={<Navigate to={"/"} />} />
                   </Routes>
-
-                  {/* <PokeApi/>      */}
-                
-                  
-
-                  {/* <Counter/> */}
-                  
-
-                  {/* <CartWidget/>
-                  
-                  <ItemDetailcontainer/> */}
             </BrowserRouter>
           
           </CartProvider>
+
+
+          <Pagos/>
+          <Footer/>
 
   
      
